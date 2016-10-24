@@ -1,0 +1,45 @@
+import os
+def evaluar(temp):
+    if temp < 5:
+        temp1 = str(temp)
+        archivo = open('Temp.dat', 'a+')
+        archivo.write(temp1)
+        archivo.write(" Esta muerto\n")
+        archivo.close()
+    elif temp > 5 and temp < 33.3:
+        temp1 = str(temp)
+        archivo = open('Temp.dat', 'a+')
+        archivo.write(temp1)
+        archivo.write(" Esta Enfermo\n")
+        archivo.close()
+    elif temp > 33.3 and temp < 37.5:
+        temp1 = str(temp)
+        archivo = open('Temp.dat', 'a+')
+        archivo.write(temp1)
+        archivo.write(" Esta Normal\n")
+        archivo.close()
+    elif temp > 37.5:
+        temp1 = str(temp)
+        archivo = open('Temp.dat', 'a+')
+        archivo.write(temp1)
+        archivo.write(" Tiene Fiebre\n")
+        archivo.close()
+    return
+
+archivo = open('Temp.dat', 'w')
+archivo.close()
+
+while True:
+    try:
+        print("\nPROGRARAMA EVALUAR TEMPERATURA")
+        print("Ingresa numeros para la medicion y cualquier letra para salir")
+        temp = float(input("\nIngrese la temperatura a evaluar: "))
+        evaluar(temp)
+        archivo = open('Temp.dat', 'r')
+        print(archivo.read())
+        archivo.close()
+        os.system("cls")
+    except:
+        print("\nHasta pronto que mejores!")
+        False
+        break
